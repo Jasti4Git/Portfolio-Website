@@ -1,4 +1,5 @@
 
+import React from 'react';
 import '../Experience.css';
 
 const experiences = [
@@ -50,7 +51,22 @@ const experiences = [
     }
 ];
 
+
+
+
 export default function Experience() {
+
+    const [isVisible, isRolesDisplayed] =React.useState({
+    "National Institutes of Health": false,
+    "PNC Bank": false,
+    "Social Security Administration": false,
+    "Wells Fargo": false
+});
+
+function UpdateRolesView(companyName){
+       isRolesDisplayed(visibility => ({...visibility,[companyName]:!visibility[companyName]}));
+}
+
     return (
         <section id="experience" className="experience">
             <h2>Professional Experience</h2>
@@ -71,11 +87,16 @@ export default function Experience() {
                             {item.location}
                         </p>
 
-                        <ul>
+                <button className="roles-toggle-button" onClick={() => UpdateRolesView(item.company)}>{isVisible[item.company]? "Hide roles": "Show roles" }</button>
+
+
+                       {isVisible[item.company] && <ul>
                             {item.responsibilities.map((task, taskIndex) => (
                                 <li key={taskIndex}>{task}</li>
                             ))}
-                        </ul>
+                        </ul> }
+
+
                     </div>
                 ))}
             </div>

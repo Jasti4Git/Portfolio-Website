@@ -89,3 +89,22 @@
         white-space: normal;
     }
 }
+
+.roles-toggle-button {
+    background-color: transparent;
+    color: #60A5FA;
+    border: 1px solid #60A5FA;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+.roles-toggle-button:hover {
+    background-color: #60A5FA;
+    color: #0B1220;
+    transform: translateY(-2px);
+}
